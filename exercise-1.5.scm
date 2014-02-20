@@ -21,7 +21,7 @@
 ; and the result determines whether to evaluate the consequent 
 ; or the alternative expression.)
 
-; In an interpreter using applicative-order evaluation, the
+; In an interpreter using normal-order evaluation, the
 ; interpreter would first expand the code of (test) to its
 ; underlying (if) expression, such that the expression on
 ; the left results in the expression on the right:
@@ -29,6 +29,6 @@
 ; Next, the special-form if would be applied. Since the predicate
 ; (= 0 0) evaluates to true, the first term, 0, would be returned.
 
-; In an interpreter using normal-order evaluation, the
+; In an interpreter using applicative-order evaluation, the
 ; evaluation of the expression (test 0 (p)) would never terminate,
 ; since (p) is infinitely recursive.
