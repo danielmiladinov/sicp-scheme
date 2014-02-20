@@ -24,3 +24,4 @@
 (assert-equal (sum-of-largest-2-squares 2 2 3) 13)
 (assert-equal (sum-of-largest-2-squares 2 3 2) 13)
 (assert-equal (sum-of-largest-2-squares 3 2 2) 13)
+(assert-equal (sum-of-largest-2-squares 2 2 2) 8)
