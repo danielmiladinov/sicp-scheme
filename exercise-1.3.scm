@@ -4,14 +4,13 @@
 
 (define (square x) (* x x))
 
+(define (min-2 x y) (if (< x y) x y))
+(define (min-3 x y z) (min-2 (min-2 x y) z))
+
 (define (sum-of-largest-2-squares a b c)
- (cond ((or (< a b c) (< a c b)) (sum (square b) (square c))) ; also covers (sum (square c) (square b))
-       ((or (< b a c) (< b c a)) (sum (square a) (square c))) ; also covers (sum (square c) (square a))
-       ((or (< c a b) (< c b a)) (sum (square a) (square b))) ; also covers (sum (square b) (square a))
-       ((and (< a c) (= a b)) (sum (square b) (square c)))    ; e.g. 2 2 3
-       ((and (< a b) (= a c)) (sum (square c) (square b)))    ; e.g. 2 3 2
-       ((and (< b a) (= b c)) (sum (square a) (square b)))    ; e.g. 3 2 2
-       (else (sum (square a) (square a)))))                   ; all 3 must be equal
+  (cond ((= (min-3 a b c) a) (sum (square b) (square c)))
+        ((= (min-3 a b c) b) (sum (square a) (square c)))
+        (else (sum (square b) (square a)))))
 
 (define (assert-equal x y) (if (= x y) "ok" "not ok"))
 
