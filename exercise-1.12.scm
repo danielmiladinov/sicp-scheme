@@ -12,3 +12,8 @@
 ;
 ; Write a procedure that computes elements of Pascal’s triangle
 ; by means of a recursive process.
+
+(define (pascal row col)
+  (cond ((or (= 0 col) (= row col)) 1)
+        (else (+ (pascal (- row 1) col)
+                 (pascal (- row 1) (- col 1))))))
